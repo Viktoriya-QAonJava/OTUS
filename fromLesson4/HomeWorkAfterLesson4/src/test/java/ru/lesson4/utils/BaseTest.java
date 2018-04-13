@@ -1,4 +1,4 @@
-package ru.lesson3.uk;
+package ru.lesson4.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class Base2Test {
+public class BaseTest {
     protected WebDriver webDriver;
     protected WebDriverWait webDriverWait;
     int timeout = 10;
