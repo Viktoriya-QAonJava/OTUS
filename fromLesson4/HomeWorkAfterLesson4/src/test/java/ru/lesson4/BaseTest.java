@@ -1,8 +1,10 @@
-package ru.lesson4.utils;
+package ru.lesson4;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,7 +13,7 @@ public class BaseTest {
     protected WebDriverWait webDriverWait;
     int timeout = 10;
 
-    @org.testng.annotations.BeforeClass
+    @BeforeClass
     public void beforeClass(){
         webDriver = new ChromeDriver();
         //Ждем загрузки страницы 10 секунд
@@ -25,8 +27,8 @@ public class BaseTest {
         //!!!Можно добавить паттерн Singleton
     }
 
-    /*@org.testng.annotations.AfterClass
+    @AfterClass
     public void afterClass(){
         webDriver.quit();
-    }*/
+    }
 }
