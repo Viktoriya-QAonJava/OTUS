@@ -31,4 +31,7 @@ public class BaseTest {
     public void afterClass(){
         webDriver.quit();
     }
+
+    //для Yahoo - новости справа
+    //.trending-list a[data-rapid_p="1"]
 }

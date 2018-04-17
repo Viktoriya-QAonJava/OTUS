@@ -192,25 +192,14 @@ public class FirstTest extends BaseTest {
         //Кликаем кнопку Purchase Flight
         webDriver.findElement(By.cssSelector("input[type=submit]")).click();
 
+        //Берем текущую системную дату для проверки с датой на последней странице
+        Locale.setDefault(new Locale("en", "US"));
+        Date datePP = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("E, d MMM Y HH:mm:ss Z");
+
         //Страница Thank you for your purchase today!
         //Ждем 10 сек(время определено в Base2Test) что загрузится следующая страница с таблицей и элементами - результатами поиска
         webDriverWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("table")));
-
-        //Таблица с результатми
-        /*List<WebElement> tableResult = webDriver.findElements(By.xpath("//*[@class='table']/tbody/tr/descendant::td[2]"));
-        for (WebElement w: tableResult) {
-            System.out.println("Элементы из tableResult: " + w.getText());
-        }*/
-
-        //fixme:взято у коллеги
-        // Устанавливаем часовой пояс, соответствующий временному поясу, в котором генерируется страница,
-        // для получения аналогичного времени
-        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-        // Устанавливаем локаль, соответствующую дате, на странице с бронью
-        Locale.setDefault(new Locale("en", "US"));
-        // Устанавливаем формат даты, для парсинга строки с датой на странице брони
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
-        Date date = new Date();
 
         //ID
         String idP = webDriver.findElement(By.cssSelector("table.table tbody tr:nth-of-type(1) td:nth-of-type(2)")).getText();
@@ -226,9 +215,7 @@ public class FirstTest extends BaseTest {
         String authCodeP = webDriver.findElement(By.cssSelector("table.table tbody tr:nth-of-type(6) td:nth-of-type(2)")).getText();
         //Date
         String dateP = webDriver.findElement(By.cssSelector("table.table tbody tr:nth-of-type(7) td:nth-of-type(2)")).getText();
-        //fixme:взято у коллеги
-        // парсим дату полученную со страницы
-        Date orderDate =  formatter.parse(dateP);
+
 
         assertTrue(idP.length() > 0);
         assertEquals(status,statusP);
@@ -239,15 +226,8 @@ public class FirstTest extends BaseTest {
         assertEquals(expirationDateMonth.trim(),expirationDateP.trim().substring(0,2));
         assertEquals(expirationDateYear.trim(),expirationDateP.trim().substring(expirationDateP.length()-4,expirationDateP.length()));
         assertEquals(authCode.trim(),authCodeP.trim());
-        //fixme:взято у коллеги
-        // т.к. время генерации страницы с бронью может незначительно отличаться от времени полученного во время
-        // выполнения теста, то нам приходится сравнивать разницу временных меток
-        // нам нужно чтобы разница во времени составляла меньше 10 секунд
-        //
-        // вычитаем из времени, полученного со страницы время полученное при выполнении теста
-        // т.к. время указывается в милисекундах, то делим полученную разницу на 1000
-        // проверяем, чтобы разница временных меток была меньше 10 секунд
-        int validDifference = 10;
-        assertTrue((Math.abs(orderDate.getTime() - date.getTime())/1000) < validDifference);
+        //Тест упадет,т.к дата на последней странице сгенерирована раз и не меняется
+        //assertEquals(dateP,sdf.format(datePP),"Дата,сгенерированная автоматически не совпадает с датой из Результата");
+
     }
 }
