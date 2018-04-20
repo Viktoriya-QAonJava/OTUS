@@ -1,4 +1,4 @@
-package ru.lesson66.Page;
+package ru.lesson666.Page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,10 +34,8 @@ public class WelcomePage extends AbstractPage {
 
     public void enterFromPort(){
         //fixme: вынести пока в property из примера HomeWorkAfterLesson6
-        ///Select selectFromPort = new Select(this.elementFromPortSelect);
-        ///selectFromPort.selectByVisibleText(this.textFromPort);
-
-        new Select(elementFromPortSelect).selectByValue(textFromPort);
+        Select selectFromPort = new Select(this.elementFromPortSelect);
+        selectFromPort.selectByVisibleText(this.textFromPort);
     }
 
     public void enterToPort(){

@@ -1,4 +1,5 @@
-package ru.lesson66;
+package ru.lesson666;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -25,8 +26,8 @@ public class BaseTest {
         driver.get("http://blazedemo.com/");
     }
 
-    @AfterClass
+    /*@AfterClass
     public void tearDown(){
         driver.quit();
-    }
+    }*/
 }
