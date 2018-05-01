@@ -1,0 +1,4 @@
+Мои пояснения:
+1.ExampleWithPattern_Bulder: СМОТРЕТЬ ПРИМЕРЫ ИЗ ПАКЕТОВ builder.var1 и builder.var2
+2.ExampleWithPattern_AbstractFactory: ПРИМЕР ОБЩИЙ, ПОКАЗЫВАЕТ ПРОСТО КАК ПАТТЕРН ОРГАНИЗОВАН
+3.ExamplePattern_AbstractFactory: ПОКАЗЫВАЕТ УЖЕ КАК МОЖНО ИСПОЛЬЗОВАТЬ ПАТТЕРН ABSTRACT FACTORY ПРИ НАПИСАНИИ ТЕСТА 
