@@ -1,4 +1,7 @@
-Мои пояснения:
+﻿Мои пояснения:
 1.ExampleWithPattern_Bulder: СМОТРЕТЬ ПРИМЕРЫ ИЗ ПАКЕТОВ builder.var1 и builder.var2
 2.ExampleWithPattern_AbstractFactory: ПРИМЕР ОБЩИЙ, ПОКАЗЫВАЕТ ПРОСТО КАК ПАТТЕРН ОРГАНИЗОВАН
 3.ExamplePattern_AbstractFactory: ПОКАЗЫВАЕТ УЖЕ КАК МОЖНО ИСПОЛЬЗОВАТЬ ПАТТЕРН ABSTRACT FACTORY ПРИ НАПИСАНИИ ТЕСТА 
+4.ExamplePattern_Singleton: Здесь два класса: WebDriverManager предоставляет один экзмепляр драйвера для работы теста в браузере FireFox;
+                            WebDriverManager2 предосталвяет один экземпляр драйвера для работы теста в браузере, тип которого определяется парметром String type
+				Если тип браузера не определен, то вернется null
